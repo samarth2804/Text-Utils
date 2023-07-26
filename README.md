@@ -24,7 +24,7 @@ It has the following features:
 ## Screenshot
 
 🌝 **Light Mode:**
-![image]("./DarkMode.jpeg")
+![image](DarkMode.jpeg)
 
 🌚 **Dark Mode:**
 ![image](https://user-images.githubusercontent.com/79099734/189593798-94357cb9-40ec-45e1-a9ae-78c364a0780f.png)
