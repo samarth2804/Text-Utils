@@ -22,9 +22,3 @@ It has the following features:
 - Count Statements
 
 ## Screenshot
-
-🌝 **Light Mode:**
-![image]("./LightMode.jpeg")
-
-🌚 **Dark Mode:**
-![image]("./DarkMode.jpeg")
