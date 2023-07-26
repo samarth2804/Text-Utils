@@ -4,6 +4,7 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import TextForm from "./components/TextForm";
 import Alert from "./components/Alert";
+import Footer from "./components/Footer";
 // import { BrowserRouter, Routes, Route} from "react-router-dom";
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
       <Navbar title="Text Utils" about="About" mode={mode} toggleDarkMode={toggleDarkMode} showAlert={showAlert}/>
       <Alert alert={alert} />
       <TextForm heading="Enter the Text to Analyse " mode={mode} showAlert={showAlert} />
+      <Footer/>
     {/* <BrowserRouter> */}
         {/* <Routes>
           <Route exact path="/"  element={<TextForm heading="Enter the Text to Analyse " mode={mode} showAlert={showAlert} />}/>

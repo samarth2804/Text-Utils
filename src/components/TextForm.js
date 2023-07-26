@@ -23,6 +23,16 @@ export default function TextForm(props) {
     props.showAlert("Converted to UpperCase ", "success");
   }
 
+  const handleSentenceClick= ()=>{
+    let t=text;
+    let words = t.toLowerCase().split(' ');
+    let sentenceCased = words.map(
+      (word) => word.charAt(0).toUpperCase() + word.slice(1)
+    );
+    setText(sentenceCased.join(' '));
+    props.showAlert("Converted to Sentence Case ", "success");
+  }
+
   const handleLoClick= ()=>{
     let newText=text;
     setText(newText.toLowerCase());
@@ -42,11 +52,27 @@ export default function TextForm(props) {
     let arr=text.split(/[ ]+/);
     let newText=arr.join(" ");
     setText(newText);
-    props.showAlert("Extra Spaces Removed", "success")
+    props.showAlert("Extra Spaces Removed", "success");
   }
 
- 
+  const  handleSpecialCharClick= ()=>{
+    setText(text.replace(/[^a-zA-Z0-9 ]/g, ''));
+    props.showAlert("Special Characters Removed", "success");
+  }
 
+  const  handleReverseClick= ()=>{
+      const t=text;
+      const words = t.split(' ');
+      let i = 0;
+      let result = '';
+      for (i = 0; i < words.length; i++){
+        result = words[i].split('').reverse().join('') + ' ' + result;
+      }
+      setText(result);
+    props.showAlert("Text Reversed", "success");
+  }
+  
+ 
   return (
     <>
      <div className="container my-3" style={{color : props.mode==='light' ? "black" : "white"}}>
@@ -58,15 +84,21 @@ export default function TextForm(props) {
       </div>
       <button disabled={text.length===0} className="btn btn-primary mx-1 my-1"  onClick={handleLoClick}> Convert to LowerCase</button>
       <button disabled={text.length===0} className="btn btn-primary mx-1 my-1"  onClick={handleUpClick}> Convert to UpperCase</button>
+      <button disabled={text.length===0} className="btn btn-primary mx-1 my-1"  onClick={handleSentenceClick}> Convert to SentenceCase</button>
       <button disabled={text.length===0} className="btn btn-primary mx-1 my-1"  onClick={handleSpaceClick}> Remove ExtraSpaces</button>
+      <button disabled={text.length===0} className="btn btn-primary mx-1 my-1"  onClick={handleSpecialCharClick}> Remove Special Characters</button>
+      <button disabled={text.length===0} className="btn btn-primary mx-1 my-1"  onClick={handleReverseClick}> Reverse Text</button>
       <button disabled={text.length===0} className="btn btn-primary mx-1 my-1"  onClick={handleCopyClick}> Copy Text</button>
       <button disabled={text.length===0} className="btn btn-primary mx-1 my-1"  onClick={handleClearClick}> Clear Text</button>
      </div>
      <div className="container my-3" style={{color : props.mode==='light' ? "black" : "white"}}>
-        <h2>Text Summary</h2>
+        <h2>Your Text Summary</h2>
           
          <h6>&nbsp;Words Count: {findLength()}</h6>
          <h6>&nbsp;Characters Count: {text.length-text.split("\n").length+1}</h6>
+         <h6>&nbsp;Statements Count: {text.split("\n").filter((ele)=>{
+            return ele.length!==0;
+         }).length}</h6>
          <h6>&nbsp;Average Time To Read: {(0.05*text.split(" ").length).toPrecision(1)} minutes</h6>
      </div>
 
