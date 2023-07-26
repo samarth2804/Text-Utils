@@ -7,7 +7,7 @@ export default function TextForm(props) {
   }
 
   const findLength=()=>{
-    let arr=text.split(" ");
+    let arr=text.split(/\s+/);
     let count=0;
     for(let i=0;i<arr.length;i++){
       if(arr[i].length>0){
@@ -34,12 +34,8 @@ export default function TextForm(props) {
   }
 
   const handleCopyClick= ()=>{
-    let t=document.getElementById("myBox");
-    t.select();
-    //t.setSelectionRange(0,999);
-    navigator.clipboard.writeText(t.value);
+    navigator.clipboard.writeText(text);
     props.showAlert("Copied to Clipboard", "success");
-    document.getSelection().removeAllRanges();
   }
 
   const  handleSpaceClick= ()=>{
@@ -70,7 +66,7 @@ export default function TextForm(props) {
         <h2>Text Summary</h2>
           
          <h6>&nbsp;Words Count: {findLength()}</h6>
-         <h6>&nbsp;Characters Count: {text.length}</h6>
+         <h6>&nbsp;Characters Count: {text.length-text.split("\n").length+1}</h6>
          <h6>&nbsp;Average Time To Read: {(0.05*text.split(" ").length).toPrecision(1)} minutes</h6>
      </div>
 
