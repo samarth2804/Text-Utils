@@ -21,4 +21,4 @@ It has the following features:
 - Count Words 
 - Count Statements
 
-## Screenshot
+- ## Screenshot
