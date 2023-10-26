@@ -49,7 +49,7 @@ export default function TextForm(props) {
   }
 
   const  handleSpaceClick= ()=>{
-    let arr=text.split(/[ ]+/);
+    let arr=text.split(/\s+/);
     let newText=arr.join(" ");
     setText(newText);
     props.showAlert("Extra Spaces Removed", "success");
@@ -63,9 +63,8 @@ export default function TextForm(props) {
   const  handleReverseClick= ()=>{
       const t=text;
       const words = t.split(' ');
-      let i = 0;
       let result = '';
-      for (i = 0; i < words.length; i++){
+      for (let i = 0; i < words.length; i++){
         result = words[i].split('').reverse().join('') + ' ' + result;
       }
       setText(result);
@@ -99,7 +98,7 @@ export default function TextForm(props) {
          <h6>&nbsp;Statements Count: {text.split("\n").filter((ele)=>{
             return ele.length!==0;
          }).length}</h6>
-         <h6>&nbsp;Average Time To Read: {(0.05*text.split(" ").length).toPrecision(1)} minutes</h6>
+         <h6>&nbsp;Average Time To Read: {(0.05*findLength()).toPrecision(1)} minutes</h6>
      </div>
 
      <div className="container" style={{color : props.mode==='light' ? "black" : "white"}}>

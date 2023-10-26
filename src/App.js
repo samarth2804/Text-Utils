@@ -36,7 +36,7 @@ function App() {
 
   return (
     <>
-      <Navbar title="Text Utils" about="About" mode={mode} toggleDarkMode={toggleDarkMode} showAlert={showAlert}/>
+      <Navbar title={"Text Utils" }about={"About"} mode={mode} toggleDarkMode={toggleDarkMode} showAlert={showAlert}/>
       <Alert alert={alert} />
       <TextForm heading="Enter the Text to Analyse " mode={mode} showAlert={showAlert} />
       <Footer/>
